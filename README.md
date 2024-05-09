@@ -1,5 +1,5 @@
 # Console generator for Service used Model
-<h5>Watch Screencast.webm for easy to understand</h5>
+<h5>Watch Screencast.gif for easy to understand</h5>
 <a href="https://github.com/DmitriyRetuskiy/laravel_console_generator/blob/main/Screencast.gif"> Screen how it works</a>
 
 <h5> go to laravel dir and  
