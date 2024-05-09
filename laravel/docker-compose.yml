@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  web:
+    build: ../docker/web
+    volumes:
+      - ./:/var/www/html/
+      - ../docker/web/conf/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    working_dir: /var/www/html
+    ports:
+      - "80:80"
+  composer:
+    image: composer:2.2
+    volumes:
+        - ../laravel:/var/www
+    working_dir: /var/www
+    command: composer install --ignore-platform-reqs
