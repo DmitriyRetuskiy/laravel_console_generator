@@ -1,4 +1,5 @@
-# Watch Screencast.webm for easy to understand
+# Watch Screencast.webm for easy to understand 
+<a href="https://github.com/DmitriyRetuskiy/laravel_console_generator/blob/main/Screencast.gif"> Screen how it works</a>
 
 <h5> go to laravel dir and  
 start project like this   </h5>
