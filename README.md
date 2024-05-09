@@ -1,10 +1,10 @@
 # Watch Screencast.webm for easy to understand
 
-go to laravel dir and  <br />
-start project like this   <br />
+<h5> go to laravel dir and  
+start project like this   </h5>
      docker-compose up -d   <br />
-after up containers  <br />
-go into container and run  <br />
+<h5>after up containers 
+go into container and run   </h5>
      php artisan saveGenerate UserDataset <br />
      
 
