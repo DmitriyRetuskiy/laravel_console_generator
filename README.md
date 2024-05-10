@@ -2,7 +2,7 @@
 <p> 
 This is decision for generate save code from laravel models. 
 It takes model fields and generate save code for service. 
-This solution can suit for projects with  columns tables so much
+This solution can suit for projects with  columns in tables.
 </p>
 
 <h5>Watch Screencast.gif for easy to understand</h5>
