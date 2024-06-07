@@ -66,28 +66,28 @@ class requestSaveGenerate extends Command
         }
 
         //Получаем путь основной папки для работы
-        $this->getFile("Выберите номер папки сервиса"); //Запускаем метод поиска файла
+        $this->getFile("Выберите номер папки сервиса");
 //        $this->getFile("Выберите номер папки сервиса второго уровня");
-        $this->getFile("Выберите сервис", true); //Обозначаем что эта точка конечная и необходимо получить путь к файлу
-        $numbStr = (int)$this->ask("И наконец выбери номер строки куда вставить код"); //узнаем в какую строку вставить код
-        $numbStr -= 1;//переводим номер строки к уровню массива текста
-        $text = file_get_contents($this->pathToFile);//получаем текст из файла в переменную
-        $textStr = explode("\n", $text);//переводим текст в массив
+        $this->getFile("Выберите сервис", true);
+        $numbStr = (int)$this->ask("И наконец выбери номер строки куда вставить код");
+        $numbStr -= 1;
+        $text = file_get_contents($this->pathToFile);
+        $textStr = explode("\n", $text);
 
         if (!isset($textStr[$numbStr])) {//проверяем существует ли выбранная строка
             echo "!!!Номер строки указан не верно. Аварийное завершение скрипта!!!\n";
             die;
         } else {
-            $textStr[$numbStr] .= $data;//добавляем нужные нам данные в выбранную строку файла
+            $textStr[$numbStr] .= $data;
         }
-        $text = implode("\n", $textStr);//переводим массив обратно в текстовый файл
-        file_put_contents($this->pathToFile, $text);//записываем изменения в файл
+        $text = implode("\n", $textStr);
+        file_put_contents($this->pathToFile, $text);
     }
 
     private function getFile(string $msg = "", $last = false): void
     {
-        $msg .= "\n"; //добавляем перевод строки в сообщение
-        $output = null; //обнуляем ссылку переменной результата (если это не сделать, то результат всегда будет дописываться)
+        $msg .= "\n";
+        $output = null;
 
         if(str_contains($this->os,'Windows')){
             exec("dir /B {$this->folderServices}", $output, $retval);
@@ -97,20 +97,20 @@ class requestSaveGenerate extends Command
         }
         //получаем список папок по указанному пути
         foreach ($output as $i => $item) {//записываем в сообщение возможные папки
-            $numb = $i + 1;//добавляем к ключу индекса единицы для простоты пользователя (начинать с 1 а не с 0)
-            $msg .= "[{$numb}] {$item}\n";//заносим название папок в переменную сообщения
+            $numb = $i + 1;
+            $msg .= "[{$numb}] {$item}\n";
         }
-        $folder = (int)$this->ask($msg); //предлагаем пользователю выбрать папку
+        $folder = (int)$this->ask($msg);
 
-        if (!isset($output[$folder - 1])) {//если выбранной папки не существует в массиве
-            echo "!!!Номер папки указан не верно. Аварийное завершение скрипта!!!\n"; //ошибка и завершение
+        if (!isset($output[$folder - 1])) {
+            echo "!!!Номер папки указан не верно. Аварийное завершение скрипта!!!\n";
             die;
         }
 
         if(str_contains($this->os,'Windows')){
             $this->folderServices .= $output[$folder - 1] . '\\';
         } else {
-            $this->folderServices .= $output[$folder - 1] . '/'; //добавляем выбранную папку к общесу пути
+            $this->folderServices .= $output[$folder - 1] . '/';
         }
 
 
