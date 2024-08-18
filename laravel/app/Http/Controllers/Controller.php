@@ -19,7 +19,7 @@ class Controller extends BaseController
             $controller = $method[count($method) -1];
             if($controller !== "AuthController"){
                 $service = str_replace("Controller", "Service", $controller);
-                $pathToService = "\App\Services\\{$method[3]}\\{$method[4]}\\{$service}";
+                $pathToService = "\App\Services\\{$method[3]}\\{$service}";
                 $this->service = new $pathToService();
             }
         }

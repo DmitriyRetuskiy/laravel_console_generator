@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/string_to_number',[\App\Http\Controllers\StringToNumber\StringToNumber::class, 'stringToNumber'])->name('string_to_number');
+
+//Route::get('/string_to_number', function () {})

@@ -22,7 +22,6 @@ class UserService
         $UserDataset->INN = $request->post('INN');
         $UserDataset->SNILS = $request->post('SNILS');
         $UserDataset->save();
-
         return 'worked!';
     }
 }
